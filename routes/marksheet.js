@@ -41,7 +41,7 @@ router.post('/update', (req,res)=> {
                   res.status(200).json({
                     'status':false,
                     'message':"Same Roll with different name exists in data",
-                    'error':err2
+                    'error':'Overriding name error'
                 })
               }
               else{
