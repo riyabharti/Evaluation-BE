@@ -83,14 +83,14 @@ router.post('/update', (req,res)=> {
     })
 })
 
-router.get('/fetch',(req,res)=> {
-    Marksheet.findOne(req.body.subDetails,(err,data)=> {
+router.post('/fetch',(req,res)=> {
+    Marksheet.findOne(req.body.subDetails,{marks: {_id:0}},(err,data)=> {
       if(err)
       {
         console.log("Marksheet Fetch Failed! Try again..",err);
           return res.status(500).json({
               status: false,
-              message: "Markshett Fetch Failed! Server Error..",
+              message: "Marksheet Fetch Failed! Server Error..",
               error: err
           });
       }
